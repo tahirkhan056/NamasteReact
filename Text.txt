@@ -39,4 +39,6 @@ Parcel: The beast bundler,
     - Https on Dev
     - Consistence Hashing Algorithms
     - Zero Config
+    - Tree Shaking ( Removing Un-wanted or un-used code)
+
 

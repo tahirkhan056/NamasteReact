@@ -4,7 +4,9 @@
   "description": "namaste-react tutorial",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest",
+    "start": "parcel index.html",
+    "build": "parcel build index.html"
   },
   "repository": {
     "type": "git",
@@ -17,6 +19,8 @@
   },
   "homepage": "https://github.com/tahirkhan056/namaste-react#readme",
   "devDependencies": {
+    "@babel/core": "^7.20.12",
+    "babel-plugin-transform-remove-console": "^6.9.4",
     "parcel": "^2.8.2",
     "process": "^0.11.10"
   },
@@ -24,5 +28,5 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
-  "browserlist": []
+  "browserslist": []
 }
