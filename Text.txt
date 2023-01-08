@@ -22,3 +22,21 @@ Answer: react.development.js are only meant for development, and are not suitabl
 ● What is async and defer? - see my Youtube video ;)
 Answer: Async - means execute code when it is downloaded and do not block DOM construction during downloading process. Defer - means execute code after it's downloaded and browser finished DOM construction and rendering process.
 
+
+
+Parcel: The beast bundler,
+    - HMR: Hot Module Reloading
+    - File Watcher Algorithms (c++)
+    - Bundling
+    - Minifying
+    - Cleaning our code
+    - Dev and Production Build
+    - Super Fast build Algorithms
+    - Image Optimization
+    - Caching while developmemnt
+    - Compression
+    - Compatible with older version of browser (Pollyfills)
+    - Https on Dev
+    - Consistence Hashing Algorithms
+    - Zero Config
+
