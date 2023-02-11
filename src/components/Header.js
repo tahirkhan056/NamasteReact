@@ -1,4 +1,5 @@
-import logoSrc from "../images/foodyshark.png";
+import { Link } from "react-router-dom";
+import logoSrc from "../assets/img/foodyshark.png";
 
 const Title = () => {
   return (
@@ -21,9 +22,15 @@ const Header = () => {
       <Title />
       <div className="nav-bar">
         <ul>
-          <li>Home</li>
-          <li>About</li>
-          <li>Contact</li>
+          <li>
+            <Link to="/">Home</Link>
+          </li>
+          <li>
+            <Link to="/about">About</Link>
+          </li>
+          <li>
+            <Link to="/contact">Contact</Link>
+          </li>
           <li>Cart</li>
         </ul>
       </div>

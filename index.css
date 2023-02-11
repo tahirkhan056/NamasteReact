@@ -65,6 +65,7 @@ div {
 .restaurent-card {
   width: 250px;
   padding: 20px;
+  border: 1px solid #c9cad0;
 }
 
 .restaurent-img {
@@ -97,4 +98,15 @@ div {
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-between;
+}
+
+.shimmer-card {
+  width: 250px;
+  padding: 20px;
+  background-color: #c9cad0;
+  height: 300px;
+  margin: 20px;
+}
+.menu {
+  display: flex;
 }

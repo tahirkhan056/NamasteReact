@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from "react";
 import RestaurentCard from "./RestaurentCard";
-import { restaurantList } from "../constant";
+import Shimmer from "./Shimmer";
+import { Link } from "react-router-dom";
 
 const Body = () => {
-  const [restaurants, setRestaurants] = useState(restaurantList);
+  const [restaurants, setRestaurants] = useState("");
   const [searchText, setSearchText] = useState("");
 
   useEffect(() => {
@@ -34,6 +35,9 @@ const Body = () => {
     setRestaurants(restaurantList);
   };
 
+  if (restaurants.length === 0) {
+    return <Shimmer />;
+  }
   return (
     <>
       <div>
@@ -47,7 +51,11 @@ const Body = () => {
       </div>
       <div className="content">
         {restaurants.map((restaurant) => {
-          return <RestaurentCard key={restaurant.data.id} {...restaurant} />;
+          return (
+            <Link to={`/restaurant/${restaurant.data.id}`}>
+              <RestaurentCard key={restaurant.data.id} {...restaurant} />
+            </Link>
+          );
         })}
       </div>
     </>
