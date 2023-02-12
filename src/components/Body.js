@@ -52,8 +52,11 @@ const Body = () => {
       <div className="content">
         {restaurants.map((restaurant) => {
           return (
-            <Link to={`/restaurant/${restaurant.data.id}`}>
-              <RestaurentCard key={restaurant.data.id} {...restaurant} />
+            <Link
+              key={restaurant.data.id}
+              to={`/restaurant/${restaurant.data.id}`}
+            >
+              <RestaurentCard {...restaurant} />
             </Link>
           );
         })}

@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { IMG_CDN_URL } from "../constant";
+import MenuCard from "./MenuCard";
 import Shimmer from "./Shimmer";
 
 const RestaurantMenu = () => {
@@ -38,7 +39,7 @@ const RestaurantMenu = () => {
         <h1>Menu</h1>
         <ul>
           {Object.values(restaurant?.menu?.items).map((item) => {
-            return <li key={item.id}>{item.name}</li>;
+            return <MenuCard menu={item} key={item.id} />;
           })}
         </ul>
       </div>

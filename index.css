@@ -110,3 +110,50 @@ div {
 .menu {
   display: flex;
 }
+
+.menu-card {
+  width: 500px;
+  padding: 20px;
+  border: 1px solid #c9cad0;
+  display: flex;
+  margin: 10px;
+}
+
+.menu-img {
+  width: 118px;
+  height: 96px;
+  object-fit: cover;
+  border-radius: 6px;
+}
+
+.veg-menu {
+  height: 15px;
+  width: 15px;
+  border: 2px solid green;
+  padding: 5px;
+}
+
+.veg-menu > .colormenu {
+  background-color: green;
+  border-radius: 15px;
+  height: 15px;
+  width: 15px;
+}
+
+.nonveg-menu {
+  height: 15px;
+  width: 15px;
+  border: 2px solid red;
+  padding: 5px;
+}
+
+.nonveg-menu > .colormenu {
+  background-color: red;
+  border-radius: 15px;
+  height: 15px;
+  width: 15px;
+}
+
+.menu-detail {
+  flex: 1;
+}
