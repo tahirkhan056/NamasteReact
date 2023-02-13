@@ -1,15 +1,19 @@
+import { useContext } from "react";
 import { Link } from "react-router-dom";
 import logoSrc from "../assets/img/foodyshark.png";
+import UserContext from "../utils/UserContext";
 
 const Title = () => {
   return (
     <a href="/">
-      <div className="logo">
+      <div className="flex">
         <div>
-          <img className="logo-img" alt="logo" src={logoSrc} />
+          <img className="h-24 p-2" alt="logo" src={logoSrc} />
         </div>
-        <div>
-          <span>FoodyShark</span>
+        <div className="py-8">
+          <span className="text-4xl text-blue-400 drop-shadow-xl italic">
+            FoodyShark
+          </span>
         </div>
       </div>
     </a>
@@ -17,25 +21,31 @@ const Title = () => {
 };
 
 const Header = () => {
+  const { user } = useContext(UserContext);
   return (
-    <div className="header">
+    <div className="flex justify-between shadow-md bg-pink-200">
       <Title />
-      <div className="nav-bar">
-        <ul>
-          <li>
+      <div className="py-8 mr-8 text-blue-400">
+        <ul className="flex">
+          <li className="p-3">
             <Link to="/">Home</Link>
           </li>
-          <li>
+          <li className="p-3">
             <Link to="/about">About</Link>
           </li>
-          <li>
+          <li className="p-3">
             <Link to="/contact">Contact</Link>
           </li>
-          <li>
+          <li className="p-3">
             <Link to="/instamart">Instamart</Link>
           </li>
-          <li>Cart</li>
+          <li className="p-3">
+            <Link to="/cart">Cart</Link>
+          </li>
         </ul>
+      </div>
+      <div className="py-8 mr-8 text-blue-400">
+        <span className="p-3">Welcome {user.name}</span>
       </div>
     </div>
   );

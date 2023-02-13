@@ -17,3 +17,19 @@ own words.
 Read about dif bundlers: vite, webpack, parcel
 ● Read about: ^ - caret and ~ - tilda
 ● Read about Script types in html (MDN Docs)
+
+
+
+---------------CSS --------------
+1. Native CSS file
+2. SCSS
+3. Inline CSS
+4. Styled Component
+4. Libraries like (Material UI, Base Ui, Chakra, Ant UI)
+
+------------Tailwind CSS Framework ----------
+  - CSS on the go (In the same file)
+  - Reusability
+  - Less bundle size
+  - Flexible UI ( Custumization )
+
