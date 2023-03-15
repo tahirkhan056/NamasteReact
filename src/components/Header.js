@@ -1,52 +1,123 @@
 import { useContext } from "react";
-import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
+import { Link, NavLink } from "react-router-dom";
 import logoSrc from "../assets/img/foodyshark.png";
 import UserContext from "../utils/UserContext";
+import useOnline from "../utils/useOnline";
+import { AiOutlineShoppingCart } from "react-icons/ai";
+import { BiSearch } from "react-icons/bi";
+import { TbDiscount2, IoHelpBuoyOutline, HiOutlineUser } from "react-icons/all";
 
 const Title = () => {
   return (
-    <a href="/">
+    <Link to={"/"}>
       <div className="flex">
         <div>
-          <img className="h-24 p-2" alt="logo" src={logoSrc} />
+          <img
+            data-testid="logo"
+            className="h-20 p-2"
+            alt="logo"
+            src={logoSrc}
+          />
         </div>
-        <div className="py-8">
-          <span className="text-4xl text-blue-400 drop-shadow-xl italic">
+        <div className="py-5">
+          <span className="text-4xl text-blue-400 drop-shadow-lg shadow-black italic">
             FoodyShark
           </span>
         </div>
       </div>
-    </a>
+    </Link>
   );
 };
 
 const Header = () => {
   const { user } = useContext(UserContext);
+  const { items } = useSelector((store) => store.cart);
+  const isOnline = useOnline();
   return (
-    <div className="flex justify-between shadow-md bg-pink-200">
-      <Title />
-      <div className="py-8 mr-8 text-blue-400">
-        <ul className="flex">
-          <li className="p-3">
-            <Link to="/">Home</Link>
-          </li>
-          <li className="p-3">
-            <Link to="/about">About</Link>
-          </li>
-          <li className="p-3">
-            <Link to="/contact">Contact</Link>
-          </li>
-          <li className="p-3">
-            <Link to="/instamart">Instamart</Link>
-          </li>
-          <li className="p-3">
-            <Link to="/cart">Cart</Link>
-          </li>
-        </ul>
+    <div className="bg-white max-h-20 shadow-xl fixed top-0 w-full z-10">
+      <div className="flex justify-between  px-5 mx-20">
+        <Title />
+        <div className="py-7">
+          <ul className="flex">
+            <li className="px-5 hover:text-blue-400">
+              <NavLink
+                to="/"
+                className={({ isActive }) => (isActive ? "text-blue-400" : "")}
+              >
+                <div className="flex">
+                  <BiSearch
+                    className="text-2xl mr-2"
+                    value={{ style: { verticalAlign: "middle" } }}
+                  />{" "}
+                  Search
+                </div>
+              </NavLink>
+            </li>
+            <li className="px-5 hover:text-blue-400">
+              <NavLink
+                to="/offers"
+                className={({ isActive }) => (isActive ? "text-blue-400" : "")}
+              >
+                <div className="flex">
+                  <TbDiscount2
+                    className="text-2xl mr-2"
+                    value={{ style: { verticalAlign: "middle" } }}
+                  />{" "}
+                  Offers
+                </div>
+              </NavLink>
+            </li>
+            <li className="px-5 hover:text-blue-400">
+              <NavLink
+                to="/contact"
+                className={({ isActive }) => (isActive ? "text-blue-400" : "")}
+              >
+                <div className="flex">
+                  <IoHelpBuoyOutline
+                    className="text-2xl mr-2"
+                    value={{ style: { verticalAlign: "middle" } }}
+                  />{" "}
+                  Help
+                </div>
+              </NavLink>
+            </li>
+            <li className="px-5 hover:text-blue-400">
+              <NavLink
+                to="/instamart"
+                className={({ isActive }) => (isActive ? "text-blue-400" : "")}
+              >
+                <div className="flex">
+                  <HiOutlineUser
+                    className="text-2xl mr-2"
+                    value={{ style: { verticalAlign: "middle" } }}
+                  />{" "}
+                  Sign In
+                </div>
+              </NavLink>
+            </li>
+            <li className="px-5 hover:text-blue-400">
+              <NavLink
+                to="/cart"
+                className={({ isActive }) => (isActive ? "text-blue-400" : "")}
+              >
+                <div className="flex">
+                  <AiOutlineShoppingCart
+                    className="text-2xl mr-2"
+                    value={{ style: { verticalAlign: "middle" } }}
+                  />{" "}
+                  Cart
+                </div>
+              </NavLink>
+            </li>
+          </ul>
+        </div>
+        {/* <div className="py-8 mr-8 text-blue-400">
+          <span className="p-3">Welcome {user?.name}</span>
+          <h1 data-testid="online">{isOnline ? "🟢" : "🔴"}</h1>
+        </div> */}
       </div>
-      <div className="py-8 mr-8 text-blue-400">
-        <span className="p-3">Welcome {user.name}</span>
-      </div>
+      <div className="h-6"></div>
     </div>
   );
 };

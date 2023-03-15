@@ -6,3 +6,7 @@ export function filterdata(searchText, restaurants) {
   });
   return filteredData;
 }
+
+export const sum = (num1, num2) => {
+  return num1 + num2;
+};
