@@ -2,7 +2,6 @@
   "name": "namaste-react",
   "version": "1.0.0",
   "description": "namaste-react tutorial",
-  "main": "app.js",
   "scripts": {
     "test": "jest",
     "start": "parcel index.html",
@@ -41,6 +40,5 @@
     "react-icons": "^4.8.0",
     "react-redux": "^8.0.5",
     "react-router-dom": "^6.8.0"
-  },
-  "browserslist": []
+  }
 }
