@@ -16,7 +16,6 @@ const Offer = () => {
     setIsLoading(true);
     const data = await fetch(OFFER_DATA);
     const json = await data.json();
-    console.log("json::", json);
     const allRestaurant = json?.data?.cards.filter(
       (card) => card.cardType == "restaurant"
     );
@@ -27,8 +26,6 @@ const Offer = () => {
     setMsgCard(allMsgCard);
     setIsLoading(false);
   };
-
-  console.log("allrestaurants::", allrestaurants);
 
   return (
     <div className="mt-20 mx-[70px]">

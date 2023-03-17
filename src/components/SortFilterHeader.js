@@ -3,7 +3,6 @@ import React from "react";
 const SortFilterHeader = ({ restCount, sorts, updateShortBy, sortBy }) => {
   const onUpdateSortHandler = (e) => {
     const sortVal = e.target.getAttribute("value");
-    console.log("sortVal:::", sortVal);
     updateShortBy(sortVal);
   };
   return (

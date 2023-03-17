@@ -23,7 +23,6 @@ const RestaurentCard = (props) => {
   } else {
     starBgColor = "bg-[#DB7C38] text-white";
   }
-  console.log("cloudinaryImageId::", cloudinaryImageId);
   return (
     <div className="w-72 hover:shadow-xl p-5 hover:border group mb-4">
       <div>

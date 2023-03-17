@@ -33,13 +33,13 @@ const Body = () => {
       (card) => card.cardType == "seeAllRestaurants"
     );
     const allCarouselCards = json?.data?.cards.filter(
-      (card) => card.cardType == "carousel"
+      (card) => card.data.subtype == "topCarousel"
     );
     setAllrestaurants(allRestaurant[0]?.data?.data?.cards);
     setFilteredRestaurants(allRestaurant[0]?.data?.data?.cards);
     setRestaurantCount(allRestaurant[0]?.data?.data?.totalOpenRestaurants);
     setSorts(json?.data?.sorts);
-    setCarouselData(allCarouselCards);
+    setCarouselData(allCarouselCards[0]?.data?.data?.cards);
     setIsLoading(false);
   }
 
@@ -50,7 +50,6 @@ const Body = () => {
     const allRestaurant = json?.data?.cards.filter(
       (card) => card.cardType == "seeAllRestaurants"
     );
-    console.log("allRestaurant::", allRestaurant);
     setAllrestaurants(allRestaurant[0]?.data?.data?.cards);
     setFilteredRestaurants(allRestaurant[0]?.data?.data?.cards);
     setRestaurantCount(allRestaurant[0]?.data?.data?.totalOpenRestaurants);
