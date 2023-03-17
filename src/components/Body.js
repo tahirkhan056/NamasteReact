@@ -61,9 +61,6 @@ const Body = () => {
     setFilteredRestaurants(filteredData);
   };
 
-  if (isLoading || allrestaurants?.length === 0) {
-    return <Shimmer />;
-  }
   return (
     <div className="mt-20 mx-[70px]">
       <div className="mx-[50px]">
@@ -75,18 +72,25 @@ const Body = () => {
           updateShortBy={setSortBy}
           sortBy={sortBy}
         />
-        <div className="flex flex-wrap justify-between" data-testid="rest-list">
-          {filteredRestaurants?.map((restaurant) => {
-            return (
-              <Link
-                key={restaurant.data.id}
-                to={`/restaurant/${restaurant.data.id}`}
-              >
-                <RestaurentCard {...restaurant} />
-              </Link>
-            );
-          })}
-        </div>
+        {isLoading || allrestaurants?.length === 0 ? (
+          <Shimmer />
+        ) : (
+          <div
+            className="flex flex-wrap justify-between"
+            data-testid="rest-list"
+          >
+            {filteredRestaurants?.map((restaurant) => {
+              return (
+                <Link
+                  key={restaurant.data.id}
+                  to={`/restaurant/${restaurant.data.id}`}
+                >
+                  <RestaurentCard {...restaurant} />
+                </Link>
+              );
+            })}
+          </div>
+        )}
       </div>
     </div>
   );

@@ -14,6 +14,7 @@ import UserContext from "./utils/UserContext";
 import { Provider } from "react-redux";
 import store from "./store";
 import Offer from "./components/Offer";
+import Cart from "./components/Cart";
 
 // Code Splitting
 // Chunking
@@ -61,8 +62,8 @@ const appRouter = createBrowserRouter([
         element: <Body />,
       },
       {
-        path: "/contact",
-        element: <Contact />,
+        path: "/cart",
+        element: <Cart />,
       },
       {
         path: "/offers",

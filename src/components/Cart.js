@@ -4,7 +4,7 @@ import store from "../store";
 const Cart = () => {
   const { items } = useSelector((store) => store.cart);
   return (
-    <div>
+    <div className="mt-20">
       <div>Cart</div>
       <div>
         <ul>
