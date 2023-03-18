@@ -4,9 +4,13 @@ import { Link, NavLink } from "react-router-dom";
 import logoSrc from "../assets/img/foodyshark.png";
 import UserContext from "../utils/UserContext";
 import useOnline from "../utils/useOnline";
-import { AiOutlineShoppingCart } from "react-icons/ai";
-import { BiSearch } from "react-icons/bi";
-import { TbDiscount2, IoHelpBuoyOutline, HiOutlineUser } from "react-icons/all";
+import {
+  TbDiscount2,
+  IoHelpBuoyOutline,
+  HiOutlineUser,
+  BsFillCartFill,
+  BiSearch,
+} from "react-icons/all";
 
 const Title = () => {
   return (
@@ -34,6 +38,11 @@ const Header = () => {
   const { user } = useContext(UserContext);
   const { items } = useSelector((store) => store.cart);
   const isOnline = useOnline();
+
+  const totalItem = items?.reduce((c, a) => {
+    return c + a.quantity;
+  }, 0);
+
   return (
     <div className="bg-white max-h-20 shadow-xl fixed top-0 w-full z-10">
       <div className="flex justify-between  px-5 mx-20">
@@ -102,8 +111,13 @@ const Header = () => {
                 className={({ isActive }) => (isActive ? "text-blue-400" : "")}
               >
                 <div className="flex">
-                  <AiOutlineShoppingCart
-                    className="text-2xl mr-2"
+                  <div className="relative left-[22px] top-1 text-xs text-white w-5 text-center">
+                    <span>{totalItem}</span>
+                  </div>
+                  <BsFillCartFill
+                    className={`text-2xl mr-2 ${
+                      items.length ? "text-green-500" : ""
+                    }`}
                     value={{ style: { verticalAlign: "middle" } }}
                   />{" "}
                   Cart
@@ -112,7 +126,10 @@ const Header = () => {
             </li>
           </ul>
         </div>
-        {/* <div className="py-8 mr-8 text-blue-400">
+        {/*
+         *  ! code for showing Online offline
+         */
+        /* <div className="py-8 mr-8 text-blue-400">
           <span className="p-3">Welcome {user?.name}</span>
           <h1 data-testid="online">{isOnline ? "🟢" : "🔴"}</h1>
         </div> */}
