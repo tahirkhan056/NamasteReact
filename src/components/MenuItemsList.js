@@ -39,7 +39,7 @@ const MenuItemsList = ({ data }) => {
           "type.googleapis.com/swiggy.presentation.food.v2.RestaurantLicenseInfo"
         ) {
           return (
-            <div className="mx-4">
+            <div className="mx-4" key={"lisence_" + i}>
               <div className="flex justify-start w-full items-center  py-2 mt-3 border-b border-black">
                 <div>
                   <img
@@ -58,7 +58,7 @@ const MenuItemsList = ({ data }) => {
           "type.googleapis.com/swiggy.presentation.food.v2.RestaurantAddress"
         ) {
           return (
-            <div className="mx-4 mt-4 pb-40 text-[#93959f]">
+            <div key={"address" + i} className="mx-4 mt-4 pb-40 text-[#93959f]">
               <div className="flex flex-col w-full">
                 <div className="font-semibold">{obj.name}</div>
                 <div>{`(Outlet:${obj.area})`}</div>

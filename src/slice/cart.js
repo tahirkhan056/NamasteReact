@@ -11,13 +11,15 @@ const cartSlice = createSlice({
   reducers: {
     addItem: (state, action) => {
       let found = false;
-      for (key in state.items) {
-        if (state.items[key].id == action.payload.id) {
-          state.items[key].quantity = state.items[key].quantity + 1;
+      state.items.every((item, i) => {
+        if (item.id == action.payload.id) {
+          item.quantity = item.quantity + 1;
           found = true;
-          break;
+          return false;
         }
-      }
+        return true;
+      });
+
       if (!found) {
         state.items.push({ quantity: 1, ...action.payload });
       }

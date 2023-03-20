@@ -4,7 +4,6 @@ import { IMG_CDN_URL } from "../constant";
 import { addItem, removeItem } from "../slice/cart";
 
 const MenuCard = ({ menu }) => {
-  console.log("menu::", menu);
   const { isVeg, name, price, description, imageId, defaultPrice } = menu;
   const [counter, setCounter] = useState(0);
   const dispatch = useDispatch();

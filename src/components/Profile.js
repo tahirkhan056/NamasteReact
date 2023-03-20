@@ -21,13 +21,6 @@ const Profile = () => {
     setUserInfo(json);
   };
 
-  setCount((prevState) => {
-    console.log(prevState);
-    prevState[ev.target.id] = prevState[ev.target.id] + 1;
-    console.log(prevState);
-    return prevState;
-  });
-
   return (
     <div>
       <h3>Profile 2</h3>

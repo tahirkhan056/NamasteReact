@@ -16,7 +16,6 @@ const RestaurantMenu = () => {
   if (!restaurant) {
     return <Shimmer />;
   }
-  console.log("restaurant::", restaurant);
   const restaurantData = restaurant.cards.filter((c) => {
     return (
       c?.card?.card["@type"] ==
@@ -35,6 +34,7 @@ const RestaurantMenu = () => {
   if (restaurantData.length) {
     dispatch(addRestaurant(restaurantData[0]?.card?.card?.info));
   }
+
   return (
     <div className="relative min-h-full flex flex-col min-w-[1240px]">
       <div className="pt-5 flex-grow">
