@@ -5,7 +5,7 @@ import { addItem, removeItem } from "../slice/cart";
 
 const MenuCard = ({ menu }) => {
   console.log("menu::", menu);
-  const { isVeg, name, price, description, imageId } = menu;
+  const { isVeg, name, price, description, imageId, defaultPrice } = menu;
   const [counter, setCounter] = useState(0);
   const dispatch = useDispatch();
   const onAddItemHandler = (item) => {
@@ -41,7 +41,7 @@ const MenuCard = ({ menu }) => {
             {name}
           </div>
           <div className="text-sm text-slate-700 break-words">
-            ₹{price / 100}
+            ₹{price ? price / 100 : defaultPrice / 100}
           </div>
           <div className="mt-3 text-sm text-gray-500">{description}</div>
         </div>

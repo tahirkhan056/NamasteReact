@@ -1,9 +1,14 @@
-import { useContext } from "react";
 import { useSelector } from "react-redux";
 import { Link, NavLink } from "react-router-dom";
 import logoSrc from "../assets/img/foodyshark.png";
-import UserContext from "../utils/UserContext";
-import useOnline from "../utils/useOnline";
+
+/**
+ * ! For User Context and useOnline Custom Hooks
+ * import { useContext } from "react";
+ * import UserContext from "../utils/UserContext";
+ * import useOnline from "../utils/useOnline";
+ */
+
 import {
   TbDiscount2,
   IoHelpBuoyOutline,
@@ -25,7 +30,7 @@ const Title = () => {
           />
         </div>
         <div className="py-5">
-          <span className="text-4xl text-blue-400 drop-shadow-lg shadow-black italic">
+          <span className="text-4xl text-blue-400 drop-shadow-xl shadow-black italic">
             FoodyShark
           </span>
         </div>
@@ -35,9 +40,12 @@ const Title = () => {
 };
 
 const Header = () => {
-  const { user } = useContext(UserContext);
+  /**
+   * ! For User Context and useOnline Custom Hooks
+   *    const { user } = useContext(UserContext);
+   *    const isOnline = useOnline();
+   */
   const { items } = useSelector((store) => store.cart);
-  const isOnline = useOnline();
 
   const totalItem = items?.reduce((c, a) => {
     return c + a.quantity;
@@ -51,7 +59,7 @@ const Header = () => {
           <ul className="flex">
             <li className="px-5 hover:text-blue-400">
               <NavLink
-                to="/"
+                to="/search"
                 className={({ isActive }) => (isActive ? "text-blue-400" : "")}
               >
                 <div className="flex">
@@ -79,7 +87,7 @@ const Header = () => {
             </li>
             <li className="px-5 hover:text-blue-400">
               <NavLink
-                to="/contact"
+                to="/help"
                 className={({ isActive }) => (isActive ? "text-blue-400" : "")}
               >
                 <div className="flex">
@@ -93,7 +101,7 @@ const Header = () => {
             </li>
             <li className="px-5 hover:text-blue-400">
               <NavLink
-                to="/instamart"
+                to="/signin"
                 className={({ isActive }) => (isActive ? "text-blue-400" : "")}
               >
                 <div className="flex">
@@ -126,13 +134,14 @@ const Header = () => {
             </li>
           </ul>
         </div>
-        {/*
-         *  ! code for showing Online offline
-         */
-        /* <div className="py-8 mr-8 text-blue-400">
-          <span className="p-3">Welcome {user?.name}</span>
-          <h1 data-testid="online">{isOnline ? "🟢" : "🔴"}</h1>
-        </div> */}
+        {/**
+         * ! For Cheking Online Status
+         *
+         * <div className="py-8 mr-8 text-blue-400">
+         *    <span className="p-3">Welcome {user?.name}</span>
+         *    <h1 data-testid="online">{isOnline ? "🟢" : "🔴"}</h1>
+         * </div>
+         */}
       </div>
       <div className="h-6"></div>
     </div>

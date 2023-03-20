@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { OFFER_DATA } from "../constant";
-import RestaurentCard from "./RestaurentCard";
+import RestaurentCard from "../components/RestaurentCard";
 
 const Offer = () => {
   const [isLoading, setIsLoading] = useState(false);
@@ -28,7 +28,7 @@ const Offer = () => {
   };
 
   return (
-    <div className="mt-20 mx-[70px]">
+    <div className="mx-[70px]">
       <div className="mx-[50px]">
         <div className="bg-[#005062] -mx-[120px]">
           <div className="max-w-[1200px] mx-auto text-white h-[300px] flex items-center justify-between">

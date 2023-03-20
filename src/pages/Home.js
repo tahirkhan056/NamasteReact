@@ -1,11 +1,10 @@
-import React, { useState, useEffect, useContext } from "react";
-import RestaurentCard from "./RestaurentCard";
-import Shimmer from "./Shimmer";
+import React, { useState, useEffect } from "react";
+import RestaurentCard from "../components/RestaurentCard";
+import Shimmer from "../components/Shimmer";
 import { Link } from "react-router-dom";
 import { filterdata } from "../utils/helper";
-import Search from "./Search";
-import SortFilterHeader from "./SortFilterHeader";
-import Carousel from "./Carousel";
+import SortFilterHeader from "../components/SortFilterHeader";
+import Carousel from "../components/Carousel";
 import { GET_ALL_RESTAURANTS } from "../constant";
 
 const Body = () => {
@@ -62,9 +61,8 @@ const Body = () => {
   };
 
   return (
-    <div className="mt-20 mx-[70px]">
+    <div className="mx-[70px]">
       <div className="mx-[50px]">
-        {/* <Search onSerch={searchButtonClickHandler} /> */}
         {carouselData && <Carousel data={carouselData} />}
         <SortFilterHeader
           restCount={restaurantCount}

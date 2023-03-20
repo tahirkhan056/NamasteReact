@@ -1,20 +1,23 @@
 import React, { lazy, Suspense, useContext, useState } from "react";
 import ReactDOM from "react-dom/client";
 import Header from "./components/Header";
-import Body from "./components/Body";
 import Footer from "./components/Footer";
 import About from "./components/About";
 import Error from "./components/Error";
 import Contact from "./components/Contact";
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
-import RestaurantMenu from "./components/RestaurantMenu";
+import RestaurantMenu from "./pages/RestaurantMenu";
 import Profile from "./components/Profile";
 import Shimmer from "./components/Shimmer";
 import UserContext from "./utils/UserContext";
 import { Provider } from "react-redux";
 import store from "./store";
-import Offer from "./components/Offer";
-import Cart from "./components/Cart";
+import Offer from "./pages/Offer";
+import Cart from "./pages/Cart";
+import Home from "./pages/Home";
+import Search from "./pages/Search";
+import Help from "./pages/Help";
+import SignIn from "./pages/SignIn";
 
 // Code Splitting
 // Chunking
@@ -43,7 +46,9 @@ const AppLayout = () => {
           }}
         >
           <Header />
-          <Outlet />
+          <div className="mt-20">
+            <Outlet />
+          </div>
           <Footer />
         </UserContext.Provider>
       </Provider>
@@ -59,25 +64,28 @@ const appRouter = createBrowserRouter([
     children: [
       {
         path: "/",
-        element: <Body />,
+        element: <Home />,
       },
       {
-        path: "/cart",
-        element: <Cart />,
+        path: "/search",
+        element: <Search />,
       },
+
       {
         path: "/offers",
         element: <Offer />,
       },
       {
-        path: "/about",
-        element: <About />,
-        children: [
-          {
-            path: "profile",
-            element: <Profile />,
-          },
-        ],
+        path: "/help",
+        element: <Help />,
+      },
+      {
+        path: "/signin",
+        element: <SignIn />,
+      },
+      {
+        path: "/cart",
+        element: <Cart />,
       },
       {
         path: "/restaurant/:resId",
@@ -91,6 +99,16 @@ const appRouter = createBrowserRouter([
             <Instamart />
           </Suspense>
         ),
+      },
+      {
+        path: "/about",
+        element: <About />,
+        children: [
+          {
+            path: "profile",
+            element: <Profile />,
+          },
+        ],
       },
     ],
   },
